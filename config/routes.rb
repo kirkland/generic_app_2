@@ -1,4 +1,9 @@
 Inventory::Application.routes.draw do
+  resources :users, :only => ['new', 'create']
+  resources :sessions, :only => ['create', 'destroy']
+
+  root :to => 'users#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -15,8 +20,7 @@ Inventory::Application.routes.draw do
 
   # Sample resource route with options:
   #   resources :products do
-  #     member do
-  #       get 'short'
+  #     member do #       get 'short'
   #       post 'toggle'
   #     end
   #
