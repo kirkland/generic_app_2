@@ -4,6 +4,8 @@
     %title Inventory
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
+    /[if lt IE 7]
+      = stylesheet_link_tag "ie"
     = csrf_meta_tags
   %body
     #session_nav
