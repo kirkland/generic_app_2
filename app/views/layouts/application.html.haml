@@ -8,21 +8,23 @@
       = stylesheet_link_tag "ie"
     = csrf_meta_tags
   %body
-    #session_nav
-      -if current_user.present?
-        %ol
-          %li=link_to 'Sign Out', sign_out_path
-      -else
-        %ol
-          %li=link_to 'Sign In', sign_in_path
-          %li=link_to 'Sign Up', new_user_path
-    #notices
-      -if flash[:notice].present?
-        %p
-          notice:
-          =flash[:notice]
-      -if flash[:error].present?
-        %p
-          error:
-          =flash[:error]
-    = yield
+    #main
+      #session_nav
+        -if current_user.present?
+          %ol
+            %li=link_to 'Sign Out', sign_out_path
+        -else
+          %ol
+            %li=link_to 'Sign In', sign_in_path
+            %li=link_to 'Sign Up', new_user_path
+      #notices
+        -if flash[:notice].present?
+          %p
+            notice:
+            =flash[:notice]
+        -if flash[:error].present?
+          %p
+            error:
+            =flash[:error]
+      .clear
+      = yield
