@@ -18,8 +18,4 @@
         %p
           error:
           =flash[:error]
-      -if flash[:alert].present?
-        %p
-          alert:
-          =flash[:alert]
     = yield

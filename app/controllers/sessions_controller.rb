@@ -4,14 +4,14 @@ class SessionsController < ApplicationController
   end
 
   def create
-    puts "PARAMS: #{params.inspect}"
     user = User.find_by_email(params[:user][:email])
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
       redirect_to root_url, :notice => "Logged in!"
     else
-      flash.alert = "Invalid email or password"
-      redirect_to sign_in_path
+      flash[:error] = "Invalid email or password"
+      @user = User.new(:email => params[:user][:email]) # keep email in form to try again
+      render 'new'
     end
   end
 
