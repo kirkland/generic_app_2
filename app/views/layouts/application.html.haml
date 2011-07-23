@@ -11,7 +11,15 @@
       =link_to 'Sign Out', sign_out_path
     #notices
       -if flash[:notice].present?
-        =flash[:notice]
+        %p
+          notice:
+          =flash[:notice]
       -if flash[:error].present?
-        =flash[:error]
+        %p
+          error:
+          =flash[:error]
+      -if flash[:alert].present?
+        %p
+          alert:
+          =flash[:alert]
     = yield
