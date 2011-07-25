@@ -14,5 +14,8 @@ find . -type f -exec sed -i "s/GenericApp/$proj_name/" '{}' \;
 git init
 git add .
 git commit -am "new project"
+
 gem install bundler --no-ri --no-rdoc
 bundle install
+
+rake db:migrate
