@@ -20,11 +20,11 @@
       .clear
       #notices
         -if flash[:notice].present?
-          %p
+          .notice
             notice:
             =flash[:notice]
         -if flash[:error].present?
-          %p
+          .error
             error:
             =flash[:error]
       .clear
