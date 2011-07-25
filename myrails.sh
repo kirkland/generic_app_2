@@ -4,6 +4,11 @@ proj_name=$1
 if [[ -z "$proj_name" ]]; then
   echo "please specify a project name"
   exit 1
+else
+  if [[ ! $1 =~ [A-Z] ]]; then
+    echo "please name your project like a Ruby constant: e.g. MyProject  instead of my_project"
+    exit 1
+  fi
 fi
 
 git clone git@github.com:kirkland/generic_app_2.git
